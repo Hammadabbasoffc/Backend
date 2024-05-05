@@ -1,0 +1,1 @@
+Hello hy i am using the file data who is representing the value of the file data and this is going to be interesting but i want that the value is changed to zero but can not changed so how to define it 

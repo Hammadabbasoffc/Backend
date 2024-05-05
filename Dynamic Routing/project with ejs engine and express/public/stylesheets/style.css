@@ -1,0 +1,21 @@
+html body{
+    background-color: rgb(24 24 27);
+}
+
+.background{
+    background-color: rgb(39 39 42);
+}
+
+.input-background{
+    background-color: rgb(63 63 70);
+}
+
+
+/* Truncate long text with an ellipsis */
+.truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px; /* Adjust this value as needed */
+}
+

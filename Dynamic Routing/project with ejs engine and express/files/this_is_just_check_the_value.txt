@@ -1,0 +1,1 @@
+<%= val.replace(/_/g, ' ').slice(0, -4) %>
