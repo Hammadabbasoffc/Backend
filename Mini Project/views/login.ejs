@@ -7,12 +7,25 @@
     <title>Create Account</title>
     <style>
         /* Custom styles */
-        body {
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            
+        }
+
+        html body{
+            width: 100%;
+            height: 100%;
             background: linear-gradient(135deg, #34495e, #2c3e50);
         }
+
+      
+
         .form-container {
+           /* position: absolute; */
             max-width: 400px;
-            margin: 1.5rem auto;
+            margin: 7rem auto ;
             background-color: #ffffff;
             border-radius: 20px;
             padding: 40px;
@@ -55,16 +68,16 @@
     </style>
 </head>
 <body>
-    <div class="form-container mt-16">
-        <h1>Create Account</h1>
-        <form action="/register" method="post">
-            <input class="form-input" type="text" placeholder="Name" name="name" required>
-            <input class="form-input" type="text" placeholder="Username" name="username" required>
-            <input class="form-input" type="password" placeholder="Password" name="password" required>
-            <input class="form-input" type="email" placeholder="Email" name="email" required>
-            <input class="form-input" type="number" placeholder="Age" name="age" required>
-            <input class="form-submit" type="submit" value="Create Account">
-        </form>
-    </div>
+
+
+        <div class="form-container mt-16">
+            <h1>Login Account</h1>
+            <form action="/login" method="post">
+                <input class="form-input" type="text" placeholder="Username" name="username" required>
+                <input class="form-input" type="password" placeholder="Password" name="password" required>
+                <input class="form-submit" type="submit" value="Login">
+            </form>
+        </div>
+
 </body>
 </html>
