@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Profile Page</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #34495e, #2c3e50);
+            margin: 0;
+            padding: 0;
+        }
+
+        .profile-container {
+            width: 80%;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .post-container {
+            width: 80%;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .post-container h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            width: calc(100% - 20px);
+            height: 100px;
+            margin-bottom: 10px;
+            outline: none;
+            padding: 10px;
+            border: 1px solid #cccccc48;
+            border-radius: 5px;
+            resize: none;
+        }
+
+        input[type="submit"] {
+            display: block;
+            width: 100px;
+            margin: 0 auto;
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+
+        .allpost-container{
+            width: 80%;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .all-posts {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+
+           
+        }
+       
+        .post {
+            width: 40%;
+            border-radius: 5px;
+            padding: 2rem;
+            background-color: #b8b6b659;
+
+
+        }
+
+        .username {
+            font-weight: bold;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+
+
+        .all-posts div {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .all-posts a {
+            text-decoration: none;
+            color: #337ab7;
+            margin: 0 10px;
+        }
+
+        .all-posts a:hover {
+            color: #23527c;
+        }
+        
+        .logout {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .logout a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #e74c3c;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .logout a:hover {
+            background-color: #c0392b;
+        }
+        </style>
+</head>
+
+<body>
+    <div class="profile-container">
+        <h1>
+            <%= user.name %>
+        </h1>
+    </div>
+
+    <div class="post-container">
+        <h1>Create Posts</h1>
+        <form action="">
+
+            <textarea name="" id=""></textarea>
+            <input type="submit" value="Create">
+        </form>
+    </div>
+
+    <div class="allpost-container">
+        <h1>All Posts</h1>
+       <div class="all-posts">
+        <div class="post">
+
+            <p class="username">@someusernamee</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur modi delectus officia dolore
+                facilis.
+                Explicabo quibusdam amet perspiciatis, cumque, laboriosam enim possimus velit porro repellat dolorum
+                animi
+                sunt in quo.</p>
+            <div>
+                <a href="">like</a>
+                <a href="">edit</a>
+            </div>
+        </div>
+        <div class="post">
+
+            <p class="username">@someusernamee</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur modi delectus officia dolore
+                facilis.
+                Explicabo quibusdam amet perspiciatis, cumque, laboriosam enim possimus velit porro repellat dolorum
+                animi
+                sunt in quo.</p>
+            <div>
+                <a href="">like</a>
+                <a href="">edit</a>
+            </div>
+        </div>
+        <div class="post">
+
+            <p class="username">@someusernamee</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur modi delectus officia dolore
+                facilis.
+                Explicabo quibusdam amet perspiciatis, cumque, laboriosam enim possimus velit porro repellat dolorum
+                animi
+                sunt in quo.</p>
+            <div>
+                <a href="">like</a>
+                <a href="">edit</a>
+            </div>
+        </div>
+       </div>
+
+
+   
+    </div>
+    <div class="logout">
+        <a href="/logout">logout</a>
+    </div>
+</body>
+
+</html>

@@ -68,7 +68,7 @@ app.post('/login',async (req, res)=>{
             {
                 let token = jwt.sign({username: username , userId: user._id}, "Giuafopsdvugapsd")
                 res.cookie("token", token)
-                res.status(200).send("You Are logged in")
+                res.status(200).redirect('/profile')
             }
             else res.redirect("/login")
     })
@@ -85,16 +85,18 @@ app.get('/logout',(req,res)=>{
 
 
 const isLoggedIn = (req, res, next)=>{
-    if(req.cookie.token === "") res.send("You must be logged In")
+    if(req.cookies.token === "") return res.redirect('/login')
         else{
-            let data = jwt.verify(req.cookie.token,"Giuafopsdvugapsd" )
+            let data = jwt.verify(req.cookies.token,"Giuafopsdvugapsd" )
             req.user = data
             next()
     }
 }
 
-app.get('/profile', isLoggedIn , (req, res)=>{
-    res.render('/login')
+app.get('/profile', isLoggedIn , async (req, res)=>{
+    let user = await userModel.findOne({username: req.user.username})
+   
+    res.render('profile', {user})
 })
 
 app.listen(3000)
