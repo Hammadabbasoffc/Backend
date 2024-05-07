@@ -69,7 +69,7 @@
             background-color: #2980b9;
         }
 
-        .allpost-container{
+        .allpost-container {
             width: 80%;
             margin: 40px auto;
             background-color: #fff;
@@ -85,9 +85,9 @@
             align-items: center;
             gap: 4px;
 
-           
+
         }
-       
+
         .post {
             width: 40%;
             border-radius: 5px;
@@ -119,7 +119,7 @@
         .all-posts a:hover {
             color: #23527c;
         }
-        
+
         .logout {
             text-align: center;
             margin-top: 20px;
@@ -139,7 +139,7 @@
         .logout a:hover {
             background-color: #c0392b;
         }
-        </style>
+    </style>
 </head>
 
 <body>
@@ -151,59 +151,35 @@
 
     <div class="post-container">
         <h1>Create Posts</h1>
-        <form action="">
+        <form action="/post" method="post">
 
-            <textarea name="" id=""></textarea>
+            <textarea name="content" id=""></textarea>
             <input type="submit" value="Create">
         </form>
     </div>
 
     <div class="allpost-container">
         <h1>All Posts</h1>
-       <div class="all-posts">
-        <div class="post">
+        <div class="all-posts">
 
-            <p class="username">@someusernamee</p>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur modi delectus officia dolore
-                facilis.
-                Explicabo quibusdam amet perspiciatis, cumque, laboriosam enim possimus velit porro repellat dolorum
-                animi
-                sunt in quo.</p>
-            <div>
-                <a href="">like</a>
-                <a href="">edit</a>
-            </div>
+            <% user.posts.reverse().forEach((post)=>{%>
+                <div class="post">
+
+                    <p class="username">@<%= user.username %></p>
+                    <p><%= post.content  %></p>
+                    <div>
+                        <a href="">like</a>
+                        <a href="">edit</a>
+                    </div>
+                </div>
+            <%}) %>
+           
+
         </div>
-        <div class="post">
-
-            <p class="username">@someusernamee</p>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur modi delectus officia dolore
-                facilis.
-                Explicabo quibusdam amet perspiciatis, cumque, laboriosam enim possimus velit porro repellat dolorum
-                animi
-                sunt in quo.</p>
-            <div>
-                <a href="">like</a>
-                <a href="">edit</a>
-            </div>
-        </div>
-        <div class="post">
-
-            <p class="username">@someusernamee</p>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur modi delectus officia dolore
-                facilis.
-                Explicabo quibusdam amet perspiciatis, cumque, laboriosam enim possimus velit porro repellat dolorum
-                animi
-                sunt in quo.</p>
-            <div>
-                <a href="">like</a>
-                <a href="">edit</a>
-            </div>
-        </div>
-       </div>
+    </div>
 
 
-   
+
     </div>
     <div class="logout">
         <a href="/logout">logout</a>
