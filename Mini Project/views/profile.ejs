@@ -168,8 +168,11 @@
                     <p class="username">@<%= user.username %></p>
                     <p><%= post.content  %></p>
                     <div>
-                        <a href="">like</a>
-                        <a href="">edit</a>
+                        <a href="/like/<%= post._id %>">
+                            <%= post.likes.indexOf(user._id) === -1 ? "like" : "Unlike"  %>
+                        </a>
+                        <span><%= post.likes.length %> like</span>
+                        <a href="/edit/<%= post._id %>">edit</a>
                     </div>
                 </div>
             <%}) %>

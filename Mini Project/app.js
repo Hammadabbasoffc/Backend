@@ -13,6 +13,8 @@ app.use(cookieParser())
 // Models Required
 const userModel = require('./models/user')
 const postModel = require('./models/post')
+const post = require('./models/post')
+const user = require('./models/user')
 
 
 app.get('/', (req, res)=>{
@@ -111,6 +113,31 @@ app.post('/post', isLoggedIn , async (req, res)=>{
     user.posts.push(post._id)
     await user.save()
     res.redirect('/profile')
+})
+
+app.get("/like/:id", isLoggedIn, async (req, res)=>{
+    let post = await postModel.findOne({_id: req.params.id}).populate("user")
+
+    if (post.likes.indexOf(req.user.userId) === -1) {
+        post.likes.push(req.user.userId)
+    }else{
+        post.likes.splice(post.likes.indexOf(req.user.userId), 1 )
+    }
+    await post.save()
+    res.redirect("/profile")
+})
+
+app.get('/edit/:id', isLoggedIn , async (req, res)=>{
+    let post = await postModel.findOne({_id: req.params.id}).populate("user")
+    let user = await userModel.findOne({username: req.user.username}).populate("posts")
+
+    res.render('edit', {user, post})
+})
+
+app.post('/update/:id', isLoggedIn , async (req, res)=>{
+    let post = await postModel.findOneAndUpdate({_id: req.params.id} , {content: req.body.content} )
+
+    res.redirect("/profile")
 })
 
 app.listen(3000)
